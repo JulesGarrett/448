@@ -33,6 +33,22 @@ static int[][] mdata=new int[MaxSize][MaxSize];
 	public static Matirx subMatrix(int r, int c){
 		
 		Matirx sub = null;
+		int row = 0; 
+		for (int i = 0; i < n; ++i)
+		{
+			if (i == r) continue;
+			
+			int col = 0;
+			for (int j = 0; j < n; ++j)
+			{
+				if (j == c) continue;
+				
+				sub.mdata[row][col] = mdata[i][j];
+				++col;
+			}
+			
+			++row;
+		}
 		
 		return sub;
 	}
