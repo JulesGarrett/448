@@ -4,15 +4,35 @@
 package eecs448_lab7;
 
 import java.lang.Math;
+import java.io.*;
+import java.util.Scanner;
 
 
 public class Matirx {
 static int MaxSize=10;
 static int n;
-static double[][] mdata=new double[MaxSize][MaxSize]; 
-	
+static double[][] mdata;
+	public Matirx(int size){
+		mdata = new double[size][size];
+		n=size;
+	}
 	public static void main(String[] args) {
-		
+		int size=50;
+		try{
+			Scanner myFile = new Scanner(new FileReader("input.txt"));
+		       while(myFile.hasNext()&& size>0){
+				size = myFile.nextInt();
+		        Matirx m=new Matirx(size);
+		        for(int i=0; i<size; i++){
+		        	for(int j=0; j<size; j++){
+		        		m.mdata[i][j]=myFile.nextInt();
+		        	}
+		        }
+		       }
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage()+"Somthing went wrong");
+	} 
 
 	}
 	public static double determinant(){
@@ -31,7 +51,7 @@ static double[][] mdata=new double[MaxSize][MaxSize];
 		return det;
 	}
 	public static Matirx inverse(){
-		Matirx inv =null;
+		Matirx inv =new Matirx(n);
 		double det = determinant();
 		
 		for (int i = 0; i < n; ++i)
@@ -45,7 +65,7 @@ static double[][] mdata=new double[MaxSize][MaxSize];
 	}
 	public static Matirx subMatrix(int r, int c){
 		
-		Matirx sub = null;
+		Matirx sub=new Matirx(n-1);
 		int row = 0; 
 		for (int i = 0; i < n; ++i)
 		{
