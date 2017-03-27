@@ -9,7 +9,7 @@ import java.lang.Math;
 public class Matirx {
 static int MaxSize=10;
 static int n;
-static int[][] mdata=new int[MaxSize][MaxSize]; 
+static double[][] mdata=new double[MaxSize][MaxSize]; 
 	
 	public static void main(String[] args) {
 		
@@ -29,6 +29,19 @@ static int[][] mdata=new int[MaxSize][MaxSize];
 			}
 		}
 		return det;
+	}
+	public static Matirx inverse(){
+		Matirx inv =null;
+		double det = determinant();
+		
+		for (int i = 0; i < n; ++i)
+		{
+			for (int j = 0; j < n; ++j)
+			{
+				inv.mdata[i][j] =  (Math.pow(-1.0, (double)i + j) * subMatrix(j, i).determinant() / det);
+			}
+		}
+		return inv;
 	}
 	public static Matirx subMatrix(int r, int c){
 		
