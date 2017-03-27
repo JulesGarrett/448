@@ -11,30 +11,14 @@ import java.util.Scanner;
 public class Matirx {
 static int MaxSize=10;
 static int n;
-static double[][] mdata;
+static double[][] mdata= new double[MaxSize][MaxSize];
+
 	public Matirx(int size){
 		mdata = new double[size][size];
 		n=size;
+		MaxSize=size;
 	}
-	public static void main(String[] args) {
-		int size=50;
-		try{
-			Scanner myFile = new Scanner(new FileReader("input.txt"));
-		       while(myFile.hasNext()&& size>0){
-				size = myFile.nextInt();
-		        Matirx m=new Matirx(size);
-		        for(int i=0; i<size; i++){
-		        	for(int j=0; j<size; j++){
-		        		m.mdata[i][j]=myFile.nextInt();
-		        	}
-		        }
-		       }
-		}
-		catch(Exception e){
-			System.out.println(e.getMessage()+"Somthing went wrong");
-	} 
-
-	}
+		
 	public static double determinant(){
 		double det=0.0;
 		if(n==1){
@@ -45,6 +29,7 @@ static double[][] mdata;
 		}
 		else{
 			for(int i=0; i<n; ++i){
+				//System.out.println(mdata[0][0]+"missing");
 				det += Math.pow(-1.0, (double)i) * mdata[0][i]* subMatrix(0, i).determinant();
 			}
 		}
@@ -69,12 +54,14 @@ static double[][] mdata;
 		int row = 0; 
 		for (int i = 0; i < n; ++i)
 		{
-			if (i == r) continue;
+			if (i == r){ 
+				continue;}
 			
 			int col = 0;
 			for (int j = 0; j < n; ++j)
 			{
-				if (j == c) continue;
+				if (j == c) {
+					continue;}
 				
 				sub.mdata[row][col] = mdata[i][j];
 				++col;
