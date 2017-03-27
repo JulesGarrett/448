@@ -24,17 +24,17 @@ public class MatirxTest {
 	public void testdeterminant() {
 		Matirx mymat= new Matirx(3);
 		double[][] mat= new double[3][3];
-		mat[0][0]=8;
-		mat[0][1]=9;
-		mat[0][2]=7;
+		mat[0][0]=1;
+		mat[0][1]=2;
+		mat[0][2]=3;
 		mat[1][0]=3;
-		mat[1][1]=5;
-		mat[1][2]=2;
-		mat[2][0]=-2;
+		mat[1][1]=2;
+		mat[1][2]=1;
+		mat[2][0]=2;
 		mat[2][1]=3;
-		mat[2][2]=-1;
+		mat[2][2]=1;
 		
-		assertEquals(-78.0, mymat.determinant(),0.001);
+		assertEquals(12.0, mymat.determinant(),0.001);
 	}
 	@Test
 	public void testinverse() {
