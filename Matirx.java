@@ -11,28 +11,40 @@ import java.util.Scanner;
 public class Matirx {
 static int MaxSize=10;
 static int n;
-static double[][] mdata= new double[MaxSize][MaxSize];
+static double[][] mdata=new double[MaxSize][MaxSize];
 
 	public Matirx(int size){
-		mdata = new double[size][size];
 		n=size;
 		MaxSize=size;
 	}
-		
+	
+	public void setMat(double[][] arr){
+		mdata=arr;
+	}
+	
+	public double getValue(int x, int y){
+		return mdata[x][y];
+	}
+
 	public static double determinant(){
-		double det=0.0;
-		if(n==1){
-			det=mdata[0][0];
+		double det = 0.0;
+		
+		if (n == 1)
+		{
+			det = mdata[0][0];
 		}
-		else if(n==2){
+		else if (n == 2)
+		{
 			det = mdata[0][0] * mdata[1][1] - mdata[0][1] * mdata[1][0];
 		}
-		else{
-			for(int i=0; i<n; ++i){
-				//System.out.println(mdata[0][0]+"missing");
-				det += Math.pow(-1.0, (double)i) * mdata[0][i]* subMatrix(0, i).determinant();
+		else
+		{
+			for (int i = 0; i < n; ++i)
+			{
+				det += Math.pow(-1.0, (double)i) * mdata[0][i] * subMatrix(0, i).determinant();
 			}
 		}
+		
 		return det;
 	}
 	public static Matirx inverse(){
@@ -43,9 +55,10 @@ static double[][] mdata= new double[MaxSize][MaxSize];
 		{
 			for (int j = 0; j < n; ++j)
 			{
-				inv.mdata[i][j] =  (Math.pow(-1.0, (double)i + j) * subMatrix(j, i).determinant() / det);
+				inv.mdata[i][j] = Math.pow(-1.0, (double)i + j) * subMatrix(j, i).determinant() / det;
 			}
 		}
+		
 		return inv;
 	}
 	public static Matirx subMatrix(int r, int c){
@@ -54,14 +67,12 @@ static double[][] mdata= new double[MaxSize][MaxSize];
 		int row = 0; 
 		for (int i = 0; i < n; ++i)
 		{
-			if (i == r){ 
-				continue;}
+			if (i == r) continue;
 			
 			int col = 0;
 			for (int j = 0; j < n; ++j)
 			{
-				if (j == c) {
-					continue;}
+				if (j == c) continue;
 				
 				sub.mdata[row][col] = mdata[i][j];
 				++col;

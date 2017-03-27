@@ -14,29 +14,29 @@ public class Driver {
 		       while(myFile.hasNext()){
 				size = myFile.nextInt();
 				if(size>0){
-		        Matirx m=new Matirx(size);
+		        double[][] inputval=new double[size][size];
 		        writer.println("M = ");
 		        for(int i=0; i<size; i++){
 		        	for(int j=0; j<size; j++){
-		        		m.mdata[i][j]=myFile.nextInt();
-		        		writer.print(m.mdata[i][j]+" ");
+		        		inputval[i][j]=myFile.nextInt();
+		        		writer.print((int)inputval[i][j]+" ");
 		        	}
 		        	writer.println("");
 		        }
-		        System.out.println(size);
-		        System.out.println(m.mdata[0][0]);
+		        Matirx m=new Matirx(size);
+		        m.setMat(inputval);
 		        double det=m.determinant();
+		        System.out.println("det: "+det);
 		        writer.println("det(M) = "+det+"\n\n");
 		        if(det !=0){
 		        	Matirx inv=m.inverse();
-		        	writer.print("Minv = ");
-		        	/*for(int i=0; i<size; i++){
+		        	writer.println("Minv = ");
+		        	for(int i=0; i<size; i++){
 			        	for(int j=0; j<size; j++){
 			        		writer.print(inv.mdata[i][j]+" ");
-			        		System.out.print(inv.mdata[i][j]);
 			        	}
 			        	writer.println("");
-			        }*/
+			        }
 		        }
 		       }
 		       }
