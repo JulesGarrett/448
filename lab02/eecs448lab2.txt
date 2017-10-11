@@ -1,0 +1,11 @@
+Julia Garrett
+
+I don't know how impressive this is, but I had fun making it. I was also reacquainting my self with java, as it has been a while. 
+
+My program is a number guessing game. It generates a three character long
+number and then ensures that the number has no repeating characters. 
+It gives hints to the user based on the guesses that the user inputs. It then 
+tallies all the guesses the user used and gives the user a number of points earned, 
+based on the number of guesses the user had left. 
+
+The program is in java. I used eclipse to write and compile it. 
