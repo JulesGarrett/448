@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">448 lab6</string>
+    <string name="make_smaller">Make Smaller</string>
+    <string name="make_bigger">Make Bigger</string>
+    <string name="change_color">Change Color</string>
+    <string name="click_on_a_button_to_change_the_text_below">Click on a button to change the text below:</string>
+    <string name="Message">Android Studio Sucks</string>
+    <string name="Change_Message">Change Message</string>
+    <string name="Reset">Reset</string>
+    <string name="Countermsg">Number of button clicks:</string>
+    <string name="count">0</string>
+</resources>
